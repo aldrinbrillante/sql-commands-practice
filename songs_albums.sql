@@ -22,6 +22,11 @@ CREATE TABLE Albums (
 /* 
  * TODO: Insert at least 4 rows of data into the songs table. You can change up the albums as well. :)
  */
+INSERT INTO Songs (song_name, album_id)
+VALUES ('Bored to Death', 1),
+    ('Born in the U.S.A', 2),
+    ('Come Together', 3),
+    ('Hotel California', 4);
 INSERT INTO Albums (name, artist, year_published)
 VALUES ('The Dark Side of the Moon', 'Pink Floyd', 1973),
     ('Abbey Road', 'The Beatles', 1969),
@@ -31,19 +36,33 @@ VALUES ('The Dark Side of the Moon', 'Pink Floyd', 1973),
 /* Required to get result in column format */
 .headers on.mode column
 /* Queries */
--- SELECT * FROM Songs;
 SELECT *
+FROM Songs;
 FROM Albums;
 /* 
  * TODO: Write a table join query to construct a table of Song Name : Album Name
  */
+SELECT *
+FROM Songs
+    JOIN Albums ON Songs.album_id = Albums.id;
 /*
  * TODO: Find all albums published between 1970 and 1980.
  */
+SELECT *
+FROM Albums
+WHERE year_published BETWEEN 1970 AND 1980;
 /*
  * TODO: Find all songs on albums published between 1970 and 1980. 
  *(Hint: Use a table join.)
  */
+SELECT Songs.name
+FROM Songs
+    JOIN Albums ON Songs.album_id = Albums.id
+WHERE Albums.year_published BETWEEN 1970 AND 1980;
 /*
  * TODO: Find all songs on albums with names containing 'California'.
  */
+SELECT Songs.name
+FROM Songs
+    JOIN Albums ON Songs.album_id = Albums.id
+WHERE Albums.name IN ('California')
