@@ -56,14 +56,14 @@ WHERE year_published BETWEEN 1970 AND 1980;
  * TODO: Find all songs on albums published between 1970 and 1980. 
  *(Hint: Use a table join.)
  */
-SELECT Songs_name
+SELECT Song_name
 FROM Songs
     JOIN Albums ON Songs.album_id = Albums.id
 WHERE Albums.year_published BETWEEN 1970 AND 1980;
 /*
  * TODO: Find all songs on albums with names containing 'California'.
  */
-SELECT Songs_name
+SELECT Song_name
 FROM Songs
     JOIN Albums ON Songs.album_id = Albums.id
 WHERE Albums.name IN ('California')
