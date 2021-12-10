@@ -38,6 +38,7 @@ VALUES ('The Dark Side of the Moon', 'Pink Floyd', 1973),
 /* Queries */
 SELECT *
 FROM Songs;
+SELECT *
 FROM Albums;
 /* 
  * TODO: Write a table join query to construct a table of Song Name : Album Name
@@ -55,14 +56,14 @@ WHERE year_published BETWEEN 1970 AND 1980;
  * TODO: Find all songs on albums published between 1970 and 1980. 
  *(Hint: Use a table join.)
  */
-SELECT Songs.name
+SELECT Songs_name
 FROM Songs
     JOIN Albums ON Songs.album_id = Albums.id
 WHERE Albums.year_published BETWEEN 1970 AND 1980;
 /*
  * TODO: Find all songs on albums with names containing 'California'.
  */
-SELECT Songs.name
+SELECT Songs_name
 FROM Songs
     JOIN Albums ON Songs.album_id = Albums.id
 WHERE Albums.name IN ('California')
